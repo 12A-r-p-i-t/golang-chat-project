@@ -17,10 +17,11 @@ class ChatInput extends Component {
             <div className="ChatInput"> 
                 {/* onKeyDown is executed when keyboard key is pressed 
                 this.props.send means that --> here this refers to this class this.props refers to props passed and inside that send is present */}
-                <input onKeyDown={this.props.send} placeholder="Type a message....Hit enter to send"></input> 
+                <input onKeyDown={this.props.send} placeholder="Type a message... Hit Enter to Send"/> 
             </div>
         )
     }
 }
 
 export default ChatInput ;
+
