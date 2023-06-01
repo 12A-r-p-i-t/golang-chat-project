@@ -22,6 +22,7 @@ type Message struct {
 
 func (c *Client) Read() {
 	defer func() {
+		fmt.Println("Close Connection triggered")
 		c.Pool.Unregister <- c
 		c.Conn.Close()
 	}()
@@ -30,6 +31,7 @@ func (c *Client) Read() {
 		messageType, p, err := c.Conn.ReadMessage()
 		if err != nil {
 			log.Println(err)
+			return
 		}
 		message := Message{Type: messageType, Body: string(p)}
 		c.Pool.Broadcast <- message
